@@ -23,7 +23,7 @@
 |---|---|---|---|
 | 逐飞 Wi-Fi SPI | SPI2：PB13 SCK、PB14 MISO、PB15 MOSI | PE1 CS、PE9 INT、PE14 RST | 模块 +5 V、共地；详细脚号见下文 |
 | IMU（按提供的 ICM42688 模块资料） | I²C2：PB10 SCL、PB11 SDA | PE5 INT1 | 模块 VCC 接 3.3 V、共地；AD0 接 GND，CS 由模块内部上拉 |
-| 有源蜂鸣器驱动 | 无 | PD12 | GPIO 控制外部驱动电路 |
+| 蜂鸣器驱动 | 无 | PD12 / TIM4_CH1 | 800 Hz PWM 控制外部驱动电路 |
 
 当前原理图中，除 OLED/MHT04 共用 I²C1 之外，各功能未重叠，且均避开 PA13/PA14 下载调试引脚。当前 CubeMX 工程已配置 Wi-Fi SPI 和 PD12；USART1 PB6/PB7、I²C1 PB8/PB9、I²C2 PB10/PB11 等仍需在 CubeMX 中启用。
 

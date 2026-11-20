@@ -51,6 +51,7 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
+extern TIM_HandleTypeDef htim4;
 
 /* USER CODE BEGIN EFP */
 

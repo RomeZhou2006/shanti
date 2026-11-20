@@ -23,11 +23,11 @@ static wifi_result_t handle_command(const char *line)
         return send_text("OK,LED,0\n");
     }
     if (strcmp(line, "BUZZER,1") == 0) {
-        HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 625u);
         return send_text("OK,BUZZER,1\n");
     }
     if (strcmp(line, "BUZZER,0") == 0) {
-        HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0u);
         return send_text("OK,BUZZER,0\n");
     }
     return send_text("ERR,CMD\n");
