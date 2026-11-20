@@ -1,0 +1,93 @@
+\documentclass[UTF8,10pt,a4paper,fontset=fandol]{ctexart}
+\usepackage[margin=18mm]{geometry}
+\usepackage{longtable,booktabs,array,xcolor,hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.5pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{STM32F407VET6 山体滑坡预警系统引脚设计}
+\author{依据《传感器与其他》原理图图页 2}
+\date{2026 年 11 月 12 日修订}
+\begin{document}
+\maketitle
+
+\section{适用范围与分配原则}
+本表对应同目录 2026-11-12 版《传感器与其他》原理图 PDF 中的网络和接插件。MCU 为天空星 STM32F407VET6 青春版。PA9/PA10 未引至两排 40P 外扩排针，因此外接串口 1 改用 PB6/PB7；板载 SWD 仍使用 PA13/PA14。PC8--PC12、PD2/PD3 保留板载 TF 卡，PB3--PB5 保留调试复用。表中的 PB10 等为 MCU GPIO 名，不是接插件脚号。
+
+本文件是\textbf{接线与 CubeMX 配置方案}；当前 \texttt{LandslideWifiHAL.ioc} 只已配置 Wi-Fi SPI2、PB2 LED、PD12 蜂鸣器和 SWD。其余引脚尚需在 CubeMX 启用。OLED/MHT04 的 I\textsuperscript{2}C1 共线是有意共享；其余 MCU GPIO 无重复。
+
+\section{原理图网络到 MCU 引脚}
+\small
+\begin{longtable}{L{26mm}L{35mm}L{32mm}L{62mm}}
+\toprule
+原理图模块 & 网络或接插件脚号 & MCU 引脚 & 外设配置与说明\\
+\midrule
+\endfirsthead
+\toprule
+原理图模块 & 网络或接插件脚号 & MCU 引脚 & 外设配置与说明\\
+\midrule
+\endhead
+Wi-Fi SPI & MISO/1，SCK/3，MOSI/5 & PB14，PB13，PB15 & SPI2 全双工主机；与现有已连通的测试固件一致。\\
+Wi-Fi SPI & CS/4，INT/6，RST/10 & PE1，PE9，PE14 & CS、RST 为 GPIO 输出；INT 为输入。7、8 脚接 GND，9 脚接模块所需 +5 V，2 脚不接。\\
+IMU & SCL/5，SDA/4 & PB10，PB11 & I\textsuperscript{2}C2，AF4。\\
+IMU & INT1/7 & PE5 & GPIO 输入或 EXTI5；中断沿由实物传感器配置决定。\\
+IMU & AD0/3，CS/6，INT2/8 & 非 MCU GPIO & AD0 接 GND，CS 与 INT2 按图不外接；所提供模块资料称 CS 已在模块内上拉。VCC/1 接 3.3 V，GND/2 接地。\\
+OLED & SCL，SDA & PB8，PB9 & I\textsuperscript{2}C1，AF4；OLED VCC 接 3.3 V。\\
+MHT04 接口 & MHT04\_SCL，MHT04\_SDA & PB8，PB9 & 拟与 OLED 共用 I\textsuperscript{2}C1；需核对实物协议及地址，图中接口为 3.3 V、GND、SDA、SCL。\\
+TFT & TFT\_SCL/6，TFT\_SDA/8 & PA5，PA7 & SPI1\_SCK、SPI1\_MOSI；该屏无 MISO 和 CS 引脚。接插件偶数 2、4 为 3.3 V、GND，奇数脚在图中未接。\\
+TFT & TFT\_RES/10，TFT\_DC/12 & PE3，PE0 & 两路 GPIO 输出；为无 CS 的屏保留独立 SPI1 总线。\\
+TFT & TFT\_BLK/14 & PE6 & TIM9\_CH2 PWM，AF3；如只需开关背光，可先配置普通 GPIO。\\
+模拟口 H1--H4 & A1，A2，A3，A4 & PC0，PC1，PC2，PC3 & ADC1\_IN10--IN13；各接插件另有 3.3 V、GND。输入范围不得超过 ADC 参考电压。\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{串口、按键与执行器}
+\small
+\begin{longtable}{L{28mm}L{34mm}L{38mm}L{55mm}}
+\toprule
+原理图网络 & MCU 引脚 & CubeMX 功能 & 说明\\
+\midrule
+\endfirsthead
+\toprule
+原理图网络 & MCU 引脚 & CubeMX 功能 & 说明\\
+\midrule
+\endhead
+TX\_1 / RX\_1 & PB6 / PB7 & USART1\_TX / RX，AF7 & 两脚均在外扩排针；不占用板载 SWD，也不与 I\textsuperscript{2}C1 重叠。\\
+TX\_2 / RX\_2 & PD5 / PD6 & USART2\_TX / RX & 若接头 RX/TX 按外部模块方向命名，则接线时需交叉；通电前核对原理图命名约定。\\
+TX\_3 / RX\_3 & PD8 / PD9 & USART3\_TX / RX & 3.3 V TTL GPIO，不可直接承受接头的 +5 V 信号。\\
+TX\_4 / RX\_4 & PC6 / PC7 & USART6\_TX / RX & 第 4 组使用 USART6，避开板载 TF 卡占用的 PC10/PC11。\\
+KEY1、KEY2 & PE7、PE8 & GPIO 输入 & 图中外接 4.7 k\(\Omega\) 上拉，按键闭合接 GND，低电平为按下。\\
+KEY3、KEY4 & PD10、PD11 & GPIO 输入 & 同上；可轮询或按各自 EXTI 线配置中断。\\
+BUZZER\_PWM & PD12 & 当前为 GPIO 输出 & 现有固件为高电平开启；图中晶体管与高边 MOSFET 为外部驱动。若更改为无源蜂鸣器 PWM，可用 TIM4\_CH1，但将与 RGB 共用 TIM4 频率。\\
+RGB\_PWM1、2、3 & PD13、PD14、PD15 & TIM4\_CH2、CH3、CH4 & 三路 PWM 同频、占空比可独立设置；经图中的 S8050 驱动 +5 V 共阳 RGB 灯。\\
+LED1 & 无 MCU GPIO & +5 V 常亮指示 & 原理图直接由 +5 V 供电；不是可编程 LED。\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\clearpage
+\section{板载下载口与待确认接口}
+本方案共 \textbf{4 路独立 MCU 串口}：TX/RX\_1、\_2、\_3、\_4 分别使用 USART1、USART2、USART3、USART6。板载 2\(\times\)5 调试口的 PA9/PA10 与 PB6/PB7 是 USART1 的两组复用脚，\textbf{不能在 CubeMX 中同时作为两路 USART1 使用}。本方案选 PB6/PB7，因此板载串口的 PA9/PA10 不参与应用通信；程序下载和调试继续使用 PA13/PA14 的 SWD。芯片 ROM 串口下载引脚不随应用 USART1 复用脚改变。
+
+\begin{itemize}
+\item 旧方案的 GPIO 模拟 SPI：PE10/PE11/PE12，片选 PE2，在本页原理图中没有对应外设，暂保留、不与 TFT 的 PE3/PE0/PE6 重叠。
+\item U9--U13 为 +5 V 或 3.3 V 电源备用口，不占 MCU GPIO。图中的 VCCBAT 是蜂鸣器驱动电源网络，需要按实际电源方案核对。
+\item \texttt{MHT04} 型号和 I\textsuperscript{2}C 地址未给出；确认它确为 I\textsuperscript{2}C 且与 OLED 地址不同后，才能将两者接到 PB8/PB9。同一总线的上拉电阻不能无限并联。
+\item IMU 接插件的信号定义与先前模块资料一致，但提供的模块 PDF 标题写作 \texttt{lsm6dsv}，规格书写作 \texttt{ICM42688}；写驱动前必须核对实物芯片丝印。
+\end{itemize}
+
+\section{去重与实施顺序}
+已分配的 MCU GPIO 集合为：
+\begin{itemize}
+\item PA：PA5、PA7；PB：PB6、PB7、PB8、PB9、PB10、PB11、PB13、PB14、PB15；
+\item PC：PC0--PC3、PC6、PC7；PD：PD5、PD6、PD8--PD15；
+\item PE：PE0、PE1、PE3、PE5--PE9、PE14。
+\end{itemize}
+其中 PB8/PB9 分别为 OLED 和 MHT04 的同一 I\textsuperscript{2}C1 线；PB6/PB7 专供 TX\_1/RX\_1 的 USART1。其余 MCU 引脚没有被分配给互斥功能。PA13/PA14 专供 SWD，板载 TF 卡线路未被外设占用。
+
+建议先维持已验证的 Wi-Fi SPI2 和 PD12，再逐项启用 I\textsuperscript{2}C2/IMU、I\textsuperscript{2}C1/OLED、SPI1/TFT、ADC、按键与 RGB。每次在 CubeMX 生成代码后核对所选引脚和现有 Wi-Fi 分组。芯片复用功能依据 \href{https://www.st.com/resource/en/datasheet/stm32f407ve.pdf}{ST STM32F407 数据手册}；板载调试口依据 \href{https://wiki.lckfb.com/zh-hans/fdb/basic/rec-gpio.html}{立创天空星核心板说明}。
+\end{document}

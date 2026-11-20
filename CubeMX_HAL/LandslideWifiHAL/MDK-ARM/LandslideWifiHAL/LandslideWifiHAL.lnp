@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"landslidewifihal\startup_stm32f407xx.o"
+"landslidewifihal\stm32f4xx_hal_spi.o"
+"landslidewifihal\stm32f4xx_hal_rcc.o"
+"landslidewifihal\stm32f4xx_hal_rcc_ex.o"
+"landslidewifihal\stm32f4xx_hal_flash.o"
+"landslidewifihal\stm32f4xx_hal_flash_ex.o"
+"landslidewifihal\stm32f4xx_hal_flash_ramfunc.o"
+"landslidewifihal\stm32f4xx_hal_gpio.o"
+"landslidewifihal\stm32f4xx_hal_dma_ex.o"
+"landslidewifihal\stm32f4xx_hal_dma.o"
+"landslidewifihal\stm32f4xx_hal_pwr.o"
+"landslidewifihal\stm32f4xx_hal_pwr_ex.o"
+"landslidewifihal\stm32f4xx_hal_cortex.o"
+"landslidewifihal\stm32f4xx_hal.o"
+"landslidewifihal\stm32f4xx_hal_exti.o"
+"landslidewifihal\system_stm32f4xx.o"
+"landslidewifihal\main.o"
+"landslidewifihal\stm32f4xx_it.o"
+"landslidewifihal\stm32f4xx_hal_msp.o"
+"landslidewifihal\wifi_spi.o"
+"landslidewifihal\wifi_test_app.o"
+--strict --scatter "LandslideWifiHAL\LandslideWifiHAL.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "LandslideWifiHAL.map" -o LandslideWifiHAL\LandslideWifiHAL.axf

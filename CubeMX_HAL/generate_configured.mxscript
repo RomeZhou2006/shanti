@@ -1,0 +1,3 @@
+config load "C:/Users/RomeZ/Desktop/山体滑坡预警系统/CubeMX_HAL/LandslideWifiHAL/LandslideWifiHAL.ioc"
+project generate
+exit

@@ -1,0 +1,394 @@
+*** Using Compiler 'V6.21', folder: 'D:\keil51\keil51\ARM\ARMCLANG\Bin'
+Rebuild target 'LandslideWifiHAL'
+assembling startup_stm32f407xx.s...
+compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+../Src/system_stm32f4xx.c(263): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  263 |   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
+      |         ^~~~~~~~~~~~~
+1 warning generated.
+compiling system_stm32f4xx.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(379): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+  379 |     default:
+      |     ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(199): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  199 |       regval = SYSCFG->EXTICR[linepos >> 2u];
+      |                ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(202): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  202 |       SYSCFG->EXTICR[linepos >> 2u] = regval;
+      |       ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(303): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  303 |       regval = SYSCFG->EXTICR[linepos >> 2u];
+      |                ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(352): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  352 |       regval = SYSCFG->EXTICR[linepos >> 2u];
+      |                ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(354): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  354 |       SYSCFG->EXTICR[linepos >> 2u] = regval;
+      |       ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+6 warnings generated.
+compiling stm32f4xx_hal_exti.c...
+compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_pwr.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(215): warning: function 'HAL_NVIC_SystemReset' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+  215 | {
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(81): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(291): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_cortex.h(52): warning: padding struct 'MPU_Region_InitTypeDef' with 2 bytes to align 'BaseAddress' [-Wpadded]
+   52 |   uint32_t               BaseAddress;           /*!< Specifies the base address of the region to protect.                           */
+      |                          ^
+2 warnings generated.
+compiling stm32f4xx_hal_cortex.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(224): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  224 |         temp = GPIOx->AFR[position >> 3U];
+      |                ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(227): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  227 |         GPIOx->AFR[position >> 3U] = temp;
+      |         ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(243): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  243 |         temp = SYSCFG->EXTICR[position >> 2U];
+      |                ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(246): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  246 |         SYSCFG->EXTICR[position >> 2U] = temp;
+      |         ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(315): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  315 |       tmp = SYSCFG->EXTICR[position >> 2U];
+      |             ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(329): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  329 |         SYSCFG->EXTICR[position >> 2U] &= ~tmp;
+      |         ^~~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(1097): note: expanded from macro 'SYSCFG'
+ 1097 | #define SYSCFG              ((SYSCFG_TypeDef *) SYSCFG_BASE)
+      |                             ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(337): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  337 |       GPIOx->AFR[position >> 3U] &= ~(0xFU << ((uint32_t)(position & 0x07U) * 4U)) ;
+      |       ^~~~~~~~~~
+7 warnings generated.
+compiling stm32f4xx_hal_gpio.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(104): warning: no previous extern declaration for non-static variable 'pFlash' [-Wmissing-variable-declarations]
+  104 | FLASH_ProcessTypeDef pFlash  = {.ProcedureOnGoing = FLASH_PROC_NONE,
+      |                      ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(104): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+  104 | FLASH_ProcessTypeDef pFlash  = {.ProcedureOnGoing = FLASH_PROC_NONE,
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(76): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(335): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(60): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'NbSectorsToErase' [-Wpadded]
+   60 |   __IO uint32_t               NbSectorsToErase;   /*Internal variable to save the remaining sectors to erase in IT context*/
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(64): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'Sector' [-Wpadded]
+   64 |   __IO uint32_t               Sector;             /*Internal variable to define the current sector which is erasing*/
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(72): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'ErrorCode' [-Wpadded]
+   72 |   __IO uint32_t               ErrorCode;          /* FLASH error code                    */
+      |                               ^
+4 warnings generated.
+compiling stm32f4xx_hal_flash.c...
+compiling main.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(62): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(335): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(60): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'NbSectorsToErase' [-Wpadded]
+   60 |   __IO uint32_t               NbSectorsToErase;   /*Internal variable to save the remaining sectors to erase in IT context*/
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(64): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'Sector' [-Wpadded]
+   64 |   __IO uint32_t               Sector;             /*Internal variable to define the current sector which is erasing*/
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(72): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'ErrorCode' [-Wpadded]
+   72 |   __IO uint32_t               ErrorCode;          /* FLASH error code                    */
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(268): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  268 |     FLASH_Erase_Sector(pEraseInit->Sector, pEraseInit->VoltageRange);
+      |     ~~~~~~~~~~~~~~~~~~                     ~~~~~~~~~~~~^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(310): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  310 |     status = FLASH_OB_RDP_LevelConfig(pOBInit->RDPLevel);
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(324): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  324 |     status = FLASH_OB_BOR_LevelConfig(pOBInit->BORLevel);
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(62): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(335): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(295): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h(67): warning: padding size of 'FLASH_OBProgramInitTypeDef' with 3 bytes to alignment boundary [-Wpadded]
+   67 | typedef struct
+      |         ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(948): warning: unused parameter 'Banks' [-Wunused-parameter]
+  948 | static void FLASH_MassErase(uint8_t VoltageRange, uint32_t Banks)
+      |                                                            ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1027): warning: unused parameter 'Banks' [-Wunused-parameter]
+ 1027 | static HAL_StatusTypeDef FLASH_OB_EnableWRP(uint32_t WRPSector, uint32_t Banks)
+      |                                                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1063): warning: unused parameter 'Banks' [-Wunused-parameter]
+ 1063 | static HAL_StatusTypeDef FLASH_OB_DisableWRP(uint32_t WRPSector, uint32_t Banks)
+      |                                                                           ^
+10 warnings generated.
+compiling stm32f4xx_hal_flash_ex.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c(719): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  719 |   SystemCoreClock = HAL_RCC_GetSysClockFreq() >> AHBPrescTable[(RCC->CFGR & RCC_CFGR_HPRE) >> RCC_CFGR_HPRE_Pos];
+      |                                                  ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c(957): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  957 |   return (HAL_RCC_GetHCLKFreq() >> APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE1) >> RCC_CFGR_PPRE1_Pos]);
+      |                                    ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c(969): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  969 |   return (HAL_RCC_GetHCLKFreq() >> APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE2) >> RCC_CFGR_PPRE2_Pos]);
+      |                                    ^~~~~~~~~~~~~
+3 warnings generated.
+compiling stm32f4xx_hal_rcc.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c(39): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(287): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(148): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  148 |   void                       *Parent;                                                          /*!< Parent object state                    */ 
+      |                               ^
+1 warning generated.
+compiling stm32f4xx_hal_dma_ex.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(97): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(287): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(148): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  148 |   void                       *Parent;                                                          /*!< Parent object state                    */ 
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(289): warning: cast from function call of type 'uint32_t' (aka 'unsigned int') to non-matching type 'DMA_Base_Registers *' [-Wbad-function-cast]
+  289 |   regs = (DMA_Base_Registers *)DMA_CalcBaseAndBitshift(hdma);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(351): warning: cast from function call of type 'uint32_t' (aka 'unsigned int') to non-matching type 'DMA_Base_Registers *' [-Wbad-function-cast]
+  351 |   regs = (DMA_Base_Registers *)DMA_CalcBaseAndBitshift(hdma);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(977): warning: enumeration value 'HAL_DMA_XFER_ALL_CB_ID' not explicitly handled in switch [-Wswitch-enum]
+  977 |     switch (CallbackID)
+      |             ^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(1073): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+ 1073 |     default:
+      |     ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(1191): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+ 1191 |   hdma->StreamIndex = flagBitshiftOffset[stream_number];
+      |                       ^~~~~~~~~~~~~~~~~~
+6 warnings generated.
+compiling stm32f4xx_hal_dma.c...
+compiling stm32f4xx_it.c...
+compiling stm32f4xx_hal_msp.c...
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(202): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(403): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_spi.h(134): warning: padding struct 'struct __SPI_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  134 |   __IO uint32_t              ErrorCode;      /*!< SPI Error code                           */
+      |                              ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(202): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(287): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(148): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  148 |   void                       *Parent;                                                          /*!< Parent object state                    */ 
+      |                               ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(838): warning: cast from 'const uint8_t *' (aka 'const unsigned char *') to 'const uint16_t *' (aka 'const unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+  838 |       hspi->Instance->DR = *((const uint16_t *)hspi->pTxBuffPtr);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(848): warning: cast from 'const uint8_t *' (aka 'const unsigned char *') to 'const uint16_t *' (aka 'const unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+  848 |         hspi->Instance->DR = *((const uint16_t *)hspi->pTxBuffPtr);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1043): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 1043 |         *((uint16_t *)hspi->pRxBuffPtr) = (uint16_t)hspi->Instance->DR;
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1219): warning: cast from 'const uint8_t *' (aka 'const unsigned char *') to 'const uint16_t *' (aka 'const unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 1219 |       hspi->Instance->DR = *((const uint16_t *)hspi->pTxBuffPtr);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1237): warning: cast from 'const uint8_t *' (aka 'const unsigned char *') to 'const uint16_t *' (aka 'const unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 1237 |         hspi->Instance->DR = *((const uint16_t *)hspi->pTxBuffPtr);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1255): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 1255 |         *((uint16_t *)hspi->pRxBuffPtr) = (uint16_t)hspi->Instance->DR;
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1309): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+ 1309 |         (*(uint8_t *)hspi->pRxBuffPtr) = hspi->Instance->DR;
+      |                                        ~ ~~~~~~~~~~~~~~~~^~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3240): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 3240 |   *((uint16_t *)hspi->pRxBuffPtr) = (uint16_t)(hspi->Instance->DR);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3296): warning: cast from 'const uint8_t *' (aka 'const unsigned char *') to 'const uint16_t *' (aka 'const unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 3296 |   hspi->Instance->DR = *((const uint16_t *)hspi->pTxBuffPtr);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3411): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 3411 |   *((uint16_t *)hspi->pRxBuffPtr) = (uint16_t)(hspi->Instance->DR);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3470): warning: cast from 'const uint8_t *' (aka 'const unsigned char *') to 'const uint16_t *' (aka 'const unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+ 3470 |   hspi->Instance->DR = *((const uint16_t *)hspi->pTxBuffPtr);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(839): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+  839 |       hspi->pTxBuffPtr += sizeof(uint16_t);
+      |       ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(849): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+  849 |         hspi->pTxBuffPtr += sizeof(uint16_t);
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(870): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+  870 |       hspi->pTxBuffPtr += sizeof(uint8_t);
+      |       ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(879): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+  879 |         hspi->pTxBuffPtr += sizeof(uint8_t);
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1020): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1020 |         hspi->pRxBuffPtr += sizeof(uint8_t);
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1044): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1044 |         hspi->pRxBuffPtr += sizeof(uint16_t);
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1220): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1220 |       hspi->pTxBuffPtr += sizeof(uint16_t);
+      |       ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1238): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1238 |         hspi->pTxBuffPtr += sizeof(uint16_t);
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1256): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1256 |         hspi->pRxBuffPtr += sizeof(uint16_t);
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1275): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1275 |       hspi->pTxBuffPtr += sizeof(uint8_t);
+      |       ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1292): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1292 |         hspi->pTxBuffPtr++;
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(1310): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 1310 |         hspi->pRxBuffPtr++;
+      |         ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3142): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3142 |   hspi->pRxBuffPtr++;
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3204): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3204 |   hspi->pTxBuffPtr++;
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3241): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3241 |   hspi->pRxBuffPtr += sizeof(uint16_t);
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3297): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3297 |   hspi->pTxBuffPtr += sizeof(uint16_t);
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3356): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3356 |   hspi->pRxBuffPtr++;
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3412): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3412 |   hspi->pRxBuffPtr += sizeof(uint16_t);
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3445): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3445 |   hspi->pTxBuffPtr++;
+      |   ~~~~~~^~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c(3471): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+ 3471 |   hspi->pTxBuffPtr += sizeof(uint16_t);
+      |   ~~~~~~^~~~~~~~~~
+33 warnings generated.
+compiling stm32f4xx_hal_spi.c...
+../Src/wifi_test_app.c(1): warning: In file included from...../Inc\wifi_test_app.h(3): warning: no newline at end of file [-Wnewline-eof]
+    3 | void wifi_test_app_run(SPI_HandleTypeDef *spi);
+      |                                                ^
+../Src/wifi_test_app.c(39): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   39 |                 wifi_result_t result = handle_command(command_line);
+      |                               ^
+../Src/wifi_test_app.c(1): warning: In file included from...../Inc\wifi_test_app.h(2): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(403): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_spi.h(134): warning: padding struct 'struct __SPI_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  134 |   __IO uint32_t              ErrorCode;      /*!< SPI Error code                           */
+      |                              ^
+../Src/wifi_test_app.c(64): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   64 |             wifi_result_t result = wifi_module_init(spi, version, sizeof(version));
+      |                           ^
+../Src/wifi_test_app.c(86): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   86 |             unsigned sample = (unsigned)((sequence * 37u) % 1000u);
+      |                      ^
+../Src/wifi_test_app.c(80): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   80 |         wifi_result_t result = wifi_tcp_poll();
+      |                       ^
+../Src/wifi_test_app.c(53): warning: function 'wifi_test_app_run' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+   53 | {
+      | ^
+../Src/wifi_test_app.c(1): warning: In file included from...../Inc\wifi_test_app.h(2): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(287): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(148): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  148 |   void                       *Parent;                                                          /*!< Parent object state                    */ 
+      |                               ^
+../Src/wifi_test_app.c(36): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   36 |             if (bytes[i] == '\r') continue;
+      |                 ^~~~~
+../Src/wifi_test_app.c(37): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   37 |             if (bytes[i] == '\n') {
+      |                 ^~~~~
+../Src/wifi_test_app.c(38): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   38 |                 command_line[command_used] = '\0';
+      |                 ^~~~~~~~~~~~
+../Src/wifi_test_app.c(43): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   43 |                 command_line[command_used++] = (char)bytes[i];
+      |                 ^~~~~~~~~~~~
+../Src/wifi_test_app.c(43): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   43 |                 command_line[command_used++] = (char)bytes[i];
+      |                                                      ^~~~~
+13 warnings generated.
+compiling wifi_test_app.c...
+../Src/wifi_spi.c(56): warning: cast from 'const unsigned char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+   56 |         if (HAL_SPI_TransmitReceive(bus, (uint8_t *)source, target, part, 1000) != HAL_OK)
+      |                                                     ^
+../Src/wifi_spi.c(5): warning: In file included from...../Inc\wifi_spi.h(5): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(403): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_spi.h(134): warning: padding struct 'struct __SPI_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  134 |   __IO uint32_t              ErrorCode;      /*!< SPI Error code                           */
+      |                              ^
+../Src/wifi_spi.c(71): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   71 |     wifi_result_t result = exchange(h, unused, 4);
+      |                   ^
+../Src/wifi_spi.c(83): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   83 |     wifi_result_t result = exchange(h, received, 4);
+      |                   ^
+../Src/wifi_spi.c(123): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  123 |     wifi_result_t result = ready(1000);
+      |                   ^
+../Src/wifi_spi.c(5): warning: In file included from...../Inc\wifi_spi.h(5): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...../Inc\stm32f4xx_hal_conf.h(287): warning: In file included from...../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(148): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  148 |   void                       *Parent;                                                          /*!< Parent object state                    */ 
+      |                               ^
+../Src/wifi_spi.c(195): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  195 |     wifi_result_t result = ready(1000);
+      |                   ^
+../Src/wifi_spi.c(229): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+  229 |     default: return "unknown";
+      |     ^
+../Src/wifi_spi.c(34): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   34 |     out[1] = 0;
+      |     ^~~
+../Src/wifi_spi.c(35): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   35 |     out[2] = (uint8_t)(length & 0xffu);
+      |     ^~~
+../Src/wifi_spi.c(36): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   36 |     out[3] = (uint8_t)(length >> 8);
+      |     ^~~
+../Src/wifi_spi.c(58): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+   58 |         if (tx) tx += part;
+      |                 ^~
+../Src/wifi_spi.c(59): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
+   59 |         if (rx) rx += part;
+      |                 ^~
+../Src/wifi_spi.c(89): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   89 |     *length = (uint16_t)(received[2] | ((uint16_t)received[3] << 8));
+      |                          ^~~~~~~~
+../Src/wifi_spi.c(89): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   89 |     *length = (uint16_t)(received[2] | ((uint16_t)received[3] << 8));
+      |                                                   ^~~~~~~~
+../Src/wifi_spi.c(136): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  136 |     version[copy] = '\0';
+      |     ^~~~~~~
+../Src/wifi_spi.c(164): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  164 |         receive_fifo[receive_head] = data[i];
+      |         ^~~~~~~~~~~~
+../Src/wifi_spi.c(164): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  164 |         receive_fifo[receive_head] = data[i];
+      |                                      ^~~~
+../Src/wifi_spi.c(203): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  203 |     reply_length = (uint16_t)(received[2] | ((uint16_t)received[3] << 8));
+      |                               ^~~~~~~~
+../Src/wifi_spi.c(203): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  203 |     reply_length = (uint16_t)(received[2] | ((uint16_t)received[3] << 8));
+      |                                                        ^~~~~~~~
+../Src/wifi_spi.c(215): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  215 |         out[count++] = receive_fifo[receive_tail];
+      |         ^~~
+../Src/wifi_spi.c(215): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  215 |         out[count++] = receive_fifo[receive_tail];
+      |                        ^~~~~~~~~~~~
+22 warnings generated.
+compiling wifi_spi.c...
+linking...
+Program Size: Code=8706 RO-data=442 RW-data=12 ZI-data=2324  
+FromELF: creating hex file...
+"LandslideWifiHAL\LandslideWifiHAL.axf" - 0 Error(s), 108 Warning(s).
+Build Time Elapsed:  00:00:02
