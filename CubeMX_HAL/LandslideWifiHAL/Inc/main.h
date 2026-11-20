@@ -52,6 +52,7 @@ extern "C" {
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 extern TIM_HandleTypeDef htim4;
+extern I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN EFP */
 
@@ -68,6 +69,14 @@ extern TIM_HandleTypeDef htim4;
 #define BUZZER_GPIO_Port GPIOD
 #define WIFI_CS_Pin GPIO_PIN_1
 #define WIFI_CS_GPIO_Port GPIOE
+#define KEY1_Pin GPIO_PIN_7
+#define KEY1_GPIO_Port GPIOE
+#define KEY2_Pin GPIO_PIN_8
+#define KEY2_GPIO_Port GPIOE
+#define KEY3_Pin GPIO_PIN_10
+#define KEY3_GPIO_Port GPIOD
+#define KEY4_Pin GPIO_PIN_11
+#define KEY4_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 

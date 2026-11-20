@@ -37,6 +37,8 @@ SPI2 为模式 0，HSI 16 MHz 时预分频 16，即 1 MHz。PA13/PA14 留给 SWD
 
 蜂鸣器控制引脚为 PD12/TIM4_CH1，使用 800 Hz、50% 占空比 PWM；`BUZZER,1/0` 分别开关 PWM 输出。需通过合适的驱动电路连接蜂鸣器，不能把大电流负载直接接到 MCU GPIO。
 
+OLED 使用 I2C1：SCL 接 PB8、SDA 接 PB9，3.3 V 供电并共地。当前驱动按 SSD1306 128×64、I2C 地址 `0x3C` 配置，I2C 速率为 100 kHz。按键 KEY1～KEY4 分别接 PE7、PE8、PD10、PD11，按下为低电平；软件消抖 30 ms，按住至少 800 ms 记为长按。OLED 显示 WiFi 状态、最近一次按键事件、短按/长按计数和蜂鸣器状态。
+
 ## 代码位置
 
 - `Src/main.c`：CubeMX 生成的初始化，用户区调用 `wifi_test_app_run()`。

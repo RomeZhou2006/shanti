@@ -24,10 +24,12 @@ static wifi_result_t handle_command(const char *line)
     }
     if (strcmp(line, "BUZZER,1") == 0) {
         __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 625u);
+        OLED_UI_SetBuzzer(1u);
         return send_text("OK,BUZZER,1\n");
     }
     if (strcmp(line, "BUZZER,0") == 0) {
         __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0u);
+        OLED_UI_SetBuzzer(0u);
         return send_text("OK,BUZZER,0\n");
     }
     return send_text("ERR,CMD\n");
@@ -78,6 +80,7 @@ static wifi_result_t discover_host(char ip[16], uint16_t *port)
     uint32_t last_send = start - 1000u;
 
     while ((uint32_t)(HAL_GetTick() - start) < 30000u) {
+        OLED_UI_ProcessButtons();
         uint32_t now = HAL_GetTick();
         if ((uint32_t)(now - last_send) >= 1000u) {
             wifi_result_t sent = wifi_tcp_send((const uint8_t *)request,
@@ -121,27 +124,38 @@ void wifi_test_app_run(SPI_HandleTypeDef *spi)
     uint8_t connected = 0;
 
     for (;;) {
+        OLED_UI_ProcessButtons();
         if (!connected) {
             command_used = 0;
+            OLED_UI_SetWifiState("START");
             wifi_result_t result = wifi_module_init(spi, version, sizeof(version));
             if (result == WIFI_OK)
                 result = wifi_join(TEST_WIFI_SSID, TEST_WIFI_PASSWORD);
-            if (result == WIFI_OK)
+            if (result == WIFI_OK) {
+                OLED_UI_SetWifiState("DISCOVERY");
                 result = wifi_udp_discovery_open(TEST_DISCOVERY_PORT);
+            }
             if (result == WIFI_OK)
                 result = discover_host(server_ip, &server_port);
             /* 重新初始化模块，退出 UDP 模式后按发现的地址建立 TCP 连接。 */
-            if (result == WIFI_OK)
+            if (result == WIFI_OK) {
+                OLED_UI_SetWifiState("TCP CONNECT");
                 result = wifi_module_init(spi, version, sizeof(version));
+            }
             if (result == WIFI_OK)
                 result = wifi_join(TEST_WIFI_SSID, TEST_WIFI_PASSWORD);
             if (result == WIFI_OK)
                 result = wifi_tcp_connect(server_ip, server_port);
             if (result != WIFI_OK) {
-                HAL_Delay(3000);
+                OLED_UI_SetWifiState("RETRY");
+                for (uint8_t wait = 0; wait < 30u; ++wait) {
+                    OLED_UI_ProcessButtons();
+                    HAL_Delay(100u);
+                }
                 continue;
             }
             connected = 1;
+            OLED_UI_SetWifiState("ONLINE");
             consecutive_errors = 0;
             last_heartbeat = HAL_GetTick();
             if (send_text("HELLO,STM32F407\n") != WIFI_OK) connected = 0;

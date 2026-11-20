@@ -5,3 +5,4 @@
 #include "wifi_spi.h"
 #include "wifi_test_app.h"
 #include "test_config.h"
+#include "oled_ui.h"

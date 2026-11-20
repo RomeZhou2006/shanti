@@ -1,5 +1,7 @@
 --cpu=Cortex-M4.fp.sp
 "landslidewifihal\startup_stm32f407xx.o"
+"landslidewifihal\oled_ui.o"
+"landslidewifihal\stm32f4xx_hal_i2c.o"
 "landslidewifihal\stm32f4xx_hal_spi.o"
 "landslidewifihal\stm32f4xx_hal_tim.o"
 "landslidewifihal\stm32f4xx_hal_tim_ex.o"
